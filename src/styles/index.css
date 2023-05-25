@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+
+:root {
+    --neutral-0: #090909;
+    --neutral-1: #0E0E0E;
+    --neutral-2: #111111;
+    --neutral-3: #252525;
+    --neutral-4: #3E3D3D;
+    --neutral-5: #696969;
+    --neutral-6: #848383;
+    --neutral-7: #ADADAD;
+    --neutral-8: #DADADA;
+    --neutral-9: #E1E1E1;
+    --neutral-10: #F2F2F2;
+
+    --primary-0: #05230B;
+    --primary-1: #0D3716;
+    --primary-2: #10431C;
+    --primary-3: #1C4F27;
+    --primary-4: #225E2F;
+    --primary-5: #2F733E;
+    --primary-6: #3B824A;
+    --primary-7: #479558;
+    --primary-8: #63AB73;
+    --primary-9: #7EC58E;
+    --primary-10: #9DDCAB;
+
+    --red: #E91F37;
+    --orange: #F39F3C;
+    --yellow: #F6C720;
+    --green: #9EE04A;
+    --blue: #5543C8;
+    --purple: #911ABB;
+
+    --font-default: 'Quicksand', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

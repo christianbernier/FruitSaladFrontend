@@ -1,0 +1,28 @@
+.body {
+    background-color: var(--neutral-9);
+}
+
+.play-page {
+    width: 100dvw;
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 3fr 7fr;
+
+    color: var(--neutral-1);
+    font-family: var(--font-default);
+}
+
+.play-page-left {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-page-fruit-market-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
