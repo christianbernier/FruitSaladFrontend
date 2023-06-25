@@ -1,9 +1,11 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react';
 
-import '../../styles/card.css'
+import '../../styles/card.css';
 
 export const EmptyCardComponent: FC = () => {
-  return <div className={'card-wrapper'}>
-    <div className={`card`}/>
-  </div>
-}
+  return (
+    <div className={'card-wrapper'}>
+      <div className={`card`} />
+    </div>
+  );
+};

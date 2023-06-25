@@ -1,7 +1,9 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react';
 
 export const HomePage: FC = () => {
-  return <>
-    <p>Home page!</p>
-  </>
-}
+  return (
+    <>
+      <p>Home page!</p>
+    </>
+  );
+};
