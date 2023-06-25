@@ -1,34 +1,36 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 
 import '../../styles/card.css';
 import { getFruitImage } from '../../util/fruit/fruit-image.util';
-import { FruitCard, FruitType } from '../../model';
+import { FruitCard as FruitCardModel, FruitType } from '../../model';
 
-export const FruitCardComponent: FC<{ card: FruitCard }> = ({ card }) => {
-  const [name, setName] = useState('');
+export interface FruitCardParams {
+  card: FruitCardModel;
+}
 
-  useEffect(() => {
-    switch (card.fruit) {
-      case FruitType.STRAWBERRY:
-        setName('Strawberry');
-        break;
-      case FruitType.MANGO:
-        setName('Mango');
-        break;
-      case FruitType.BANANA:
-        setName('Banana');
-        break;
-      case FruitType.PEAR:
-        setName('Pear');
-        break;
-      case FruitType.BLUEBERRY:
-        setName('Blueberry');
-        break;
-      case FruitType.GRAPE:
-        setName('Grape');
-        break;
-    }
-  }, [card]);
+export const FruitCard: FC<FruitCardParams> = ({ card }) => {
+  let name = '';
+
+  switch (card.fruit) {
+    case FruitType.STRAWBERRY:
+      name = 'Strawberry';
+      break;
+    case FruitType.MANGO:
+      name = 'Mango';
+      break;
+    case FruitType.BANANA:
+      name = 'Banana';
+      break;
+    case FruitType.PEAR:
+      name = 'Pear';
+      break;
+    case FruitType.BLUEBERRY:
+      name = 'Blueberry';
+      break;
+    case FruitType.GRAPE:
+      name = 'Grape';
+      break;
+  }
 
   return (
     <div className={'card-wrapper'}>

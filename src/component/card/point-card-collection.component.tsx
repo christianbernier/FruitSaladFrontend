@@ -1,14 +1,18 @@
 import React, { FC } from 'react';
-import { PointCardComponent } from './point-card.component';
-import { PointCard } from '../../model';
+import { PointCard } from './point-card.component';
+import { PointCard as PointCardModel } from '../../model';
 
-export const PointCardCollectionComponent: FC<{ cards: PointCard[] }> = ({
+export interface PointCardCollectionParams {
+  cards: PointCardModel[];
+}
+
+export const PointCardCollection: FC<PointCardCollectionParams> = ({
   cards,
 }) => {
   return (
     <div className={'card-collection'}>
       {cards.map((card) => (
-        <PointCardComponent card={card} />
+        <PointCard card={card} />
       ))}
     </div>
   );

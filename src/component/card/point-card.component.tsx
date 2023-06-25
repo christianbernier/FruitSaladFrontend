@@ -2,7 +2,11 @@ import React, { FC, useEffect, useState } from 'react';
 
 import '../../styles/card.css';
 import { getFruitImage } from '../../util/fruit/fruit-image.util';
-import { FruitType, PointCard, PointCardType } from '../../model';
+import {
+  FruitType,
+  PointCard as PointCardModel,
+  PointCardType,
+} from '../../model';
 
 enum PointCardStyleType {
   TEXT_EQUALS,
@@ -15,7 +19,11 @@ enum PointCardStyleType {
   LINEAR,
 }
 
-export const PointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+export interface PointCardParams {
+  card: PointCardModel;
+}
+
+export const PointCard: FC<PointCardParams> = ({ card }) => {
   const [component, setComponent] = useState(PointCardStyleType.LINEAR);
 
   useEffect(() => {
@@ -88,7 +96,7 @@ export const PointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   );
 };
 
-const LinearPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+const LinearPointCardComponent: FC<{ card: PointCardModel }> = ({ card }) => {
   return (
     <>
       {card.fruitTypes.map((fruitType, index) => (
@@ -106,7 +114,9 @@ const LinearPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   );
 };
 
-const DoubleSetPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+const DoubleSetPointCardComponent: FC<{ card: PointCardModel }> = ({
+  card,
+}) => {
   return (
     <>
       <div className={'point-card-set'}>
@@ -125,7 +135,9 @@ const DoubleSetPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   );
 };
 
-const TripleSetPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+const TripleSetPointCardComponent: FC<{ card: PointCardModel }> = ({
+  card,
+}) => {
   return (
     <>
       <div className={'point-card-set'}>
@@ -148,7 +160,9 @@ const TripleSetPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   );
 };
 
-const MostFewestPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+const MostFewestPointCardComponent: FC<{ card: PointCardModel }> = ({
+  card,
+}) => {
   return (
     <>
       <div className={'point-card-most-fewest'}>
@@ -162,7 +176,9 @@ const MostFewestPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   );
 };
 
-const TextEqualsPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+const TextEqualsPointCardComponent: FC<{ card: PointCardModel }> = ({
+  card,
+}) => {
   return (
     <>
       <div className={'point-card-text-equals'}>
@@ -177,7 +193,9 @@ const TextEqualsPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   );
 };
 
-const PointsForPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+const PointsForPointCardComponent: FC<{ card: PointCardModel }> = ({
+  card,
+}) => {
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -205,7 +223,7 @@ const PointsForPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   );
 };
 
-const EvenOddPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+const EvenOddPointCardComponent: FC<{ card: PointCardModel }> = ({ card }) => {
   return (
     <>
       <div className={'point-card-even-odd'}>
@@ -227,7 +245,9 @@ const EvenOddPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   );
 };
 
-const CompleteSetPointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
+const CompleteSetPointCardComponent: FC<{ card: PointCardModel }> = ({
+  card,
+}) => {
   return (
     <>
       <div className={'point-card-complete-set'}>

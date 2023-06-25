@@ -1,17 +1,35 @@
 import React from 'react';
-import { FruitCardCollectionComponent } from '../component/card/fruit-card-collection.component';
-import { PointCardCollectionComponent } from '../component/card/point-card-collection.component';
+import { FruitCardCollection } from '../component/card/fruit-card-collection.component';
+import { PointCardCollection } from '../component/card/point-card-collection.component';
 import { Button, ButtonType } from '../component/button/button.component';
 import { FruitCard, FruitType, PointCard, PointCardType } from '../model';
 
 export const PlaygroundPage = () => {
   return (
     <>
-      <Button type={ButtonType.PRIMARY} disabled={false} text={'Action'} />
-      <Button type={ButtonType.SECONDARY} disabled={false} text={'Action'} />
-      <Button type={ButtonType.PRIMARY} disabled={true} text={'Action'} />
-      <Button type={ButtonType.SECONDARY} disabled={true} text={'Action'} />
-      <FruitCardCollectionComponent
+      <Button
+        type={ButtonType.PRIMARY}
+        text={'Action'}
+        onClick={() => undefined}
+      />
+      <Button
+        type={ButtonType.SECONDARY}
+        text={'Action'}
+        onClick={() => undefined}
+      />
+      <Button
+        type={ButtonType.PRIMARY}
+        disabled={true}
+        text={'Action'}
+        onClick={() => undefined}
+      />
+      <Button
+        type={ButtonType.SECONDARY}
+        disabled={true}
+        text={'Action'}
+        onClick={() => undefined}
+      />
+      <FruitCardCollection
         cards={
           [
             { fruit: FruitType.STRAWBERRY },
@@ -23,7 +41,7 @@ export const PlaygroundPage = () => {
           ] as FruitCard[]
         }
       />
-      <PointCardCollectionComponent
+      <PointCardCollection
         cards={
           [
             {

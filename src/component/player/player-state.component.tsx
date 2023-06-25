@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { PlayerCardsComponent } from './player-cards.component';
+import { PlayerCards } from './player-cards.component';
 import { Player } from '../../model';
 
 export interface PlayerStateParams {
@@ -12,7 +12,7 @@ export const PlayerState: FC<PlayerStateParams> = ({ player }) => {
       <div>
         <span>{player.name}</span>
       </div>
-      <PlayerCardsComponent
+      <PlayerCards
         pointCards={player.pointCards || []}
         fruitCards={player.fruitCards || []}
       />

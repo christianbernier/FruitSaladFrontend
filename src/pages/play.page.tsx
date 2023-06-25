@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useReducer } from 'react';
-import { FruitMarketComponent } from '../component/market/fruit-market.component';
+import { FruitMarket } from '../component/market/fruit-market.component';
 import { PlayContext, PlayDispatchContext } from '../state/play/play.context';
 import { playReducer } from '../state/play/play.reducer';
 import { initialPlayState } from '../state/play/play.state';
@@ -107,7 +107,7 @@ export const PlayPage: FC = () => {
               <span className={'play-page-fruit-market-title'}>
                 Fruit Market
               </span>
-              <FruitMarketComponent />
+              <FruitMarket />
             </div>
             <div className={'play-page-right'}>
               {playState.players.map((player: Player) => (

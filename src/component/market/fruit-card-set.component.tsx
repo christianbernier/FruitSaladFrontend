@@ -1,19 +1,21 @@
 import React, { FC } from 'react';
-import { FruitCardComponent } from '../card/fruit-card.component';
-import { EmptyCardComponent } from '../card/empty-card.component';
-import { FruitCard } from '../../model';
+import { FruitCard } from '../card/fruit-card.component';
+import { EmptyCard } from '../card/empty-card.component';
+import { FruitCard as FruitCardModel } from '../../model';
 
-export const FruitCardSetComponent: FC<{ cards: (FruitCard | null)[] }> = ({
-  cards,
-}) => {
+export interface FruitCardSetParams {
+  cards: (FruitCardModel | null)[];
+}
+
+export const FruitCardSet: FC<FruitCardSetParams> = ({ cards }) => {
   return (
     <>
       <div className={'fruit-card-set-container'}>
         {cards.map((card) => {
           if (card) {
-            return <FruitCardComponent card={card} />;
+            return <FruitCard card={card} />;
           } else {
-            return <EmptyCardComponent />;
+            return <EmptyCard />;
           }
         })}
       </div>

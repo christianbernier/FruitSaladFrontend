@@ -1,20 +1,27 @@
-import React, { FC, MouseEventHandler } from 'react';
+import React, { FC } from 'react';
 
 export enum ButtonType {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
 }
 
-export const Button: FC<{
+export interface ButtonParams {
   type: ButtonType;
-  disabled: boolean;
   text: string;
-  onClick?: MouseEventHandler;
-}> = ({ type, disabled, text, onClick }) => {
+  onClick: () => void;
+  disabled?: boolean;
+}
+
+export const Button: FC<ButtonParams> = ({
+  type,
+  text,
+  onClick,
+  disabled = false,
+}) => {
   return (
     <button
       className={`button ${type} ${disabled ? 'disabled' : ''}`}
-      onClick={onClick}
+      onClick={() => onClick()}
     >
       <span>{text}</span>
     </button>

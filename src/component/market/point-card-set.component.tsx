@@ -1,19 +1,21 @@
 import React, { FC } from 'react';
-import { PointCardComponent } from '../card/point-card.component';
-import { EmptyCardComponent } from '../card/empty-card.component';
-import { PointCard } from '../../model';
+import { PointCard } from '../card/point-card.component';
+import { EmptyCard } from '../card/empty-card.component';
+import { PointCard as PointCardModel } from '../../model';
 
-export const PointCardSetComponent: FC<{ cards: (PointCard | null)[] }> = ({
-  cards,
-}) => {
+export interface PointCardSetParams {
+  cards: (PointCardModel | null)[];
+}
+
+export const PointCardSet: FC<PointCardSetParams> = ({ cards }) => {
   return (
     <>
       <div className={'point-card-set-container'}>
         {cards.map((card) => {
           if (card) {
-            return <PointCardComponent card={card} />;
+            return <PointCard card={card} />;
           } else {
-            return <EmptyCardComponent />;
+            return <EmptyCard />;
           }
         })}
       </div>
