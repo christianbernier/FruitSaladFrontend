@@ -3,11 +3,12 @@ import { GameProgress } from '../model/state/game-progress.model';
 import { PointCardType } from '../model/card/point-card-type.model';
 import { FruitType } from '../model/fruit.model';
 import { FruitMarketComponent } from '../component/market/fruit-market.component';
-import { PlayerCardsComponent } from '../component/player/player-cards.component';
 import { PlayContext, PlayDispatchContext } from '../state/play/play.context';
 import { playReducer } from '../state/play/play.reducer';
 import { initialPlayState } from '../state/play/play.state';
 import { PlayActionType } from '../state/play/play.actions';
+import { Player } from '../model/player/player.model';
+import { PlayerState } from '../component/player/player-state.component';
 
 export const PlayPage: FC = () => {
   const [playState, dispatch] = useReducer(playReducer, initialPlayState);
@@ -22,6 +23,26 @@ export const PlayPage: FC = () => {
         players: [
           {
             name: 'Christian',
+            pointCards: [
+              {
+                pointType: PointCardType.AT_LEAST_2,
+                fruitTypes: [],
+                pointValues: [3],
+                reverseType: FruitType.STRAWBERRY,
+              },
+              {
+                pointType: PointCardType.FEWEST_OF_TYPE,
+                fruitTypes: [FruitType.BANANA],
+                pointValues: [7],
+                reverseType: FruitType.GRAPE,
+              },
+            ],
+            fruitCards: [
+              { type: FruitType.BANANA },
+              { type: FruitType.PEAR },
+              { type: FruitType.PEAR },
+              { type: FruitType.BLUEBERRY },
+            ],
           },
           {
             name: 'Jeremy',
@@ -82,28 +103,9 @@ export const PlayPage: FC = () => {
               <FruitMarketComponent />
             </div>
             <div className={'play-page-right'}>
-              <PlayerCardsComponent
-                pointCards={[
-                  {
-                    pointType: PointCardType.AT_LEAST_2,
-                    fruitTypes: [],
-                    pointValues: [3],
-                    reverseType: FruitType.STRAWBERRY,
-                  },
-                  {
-                    pointType: PointCardType.FEWEST_OF_TYPE,
-                    fruitTypes: [FruitType.BANANA],
-                    pointValues: [7],
-                    reverseType: FruitType.GRAPE,
-                  },
-                ]}
-                fruitCards={[
-                  { type: FruitType.BANANA },
-                  { type: FruitType.PEAR },
-                  { type: FruitType.PEAR },
-                  { type: FruitType.BLUEBERRY },
-                ]}
-              />
+              {playState.players.map((player: Player) => (
+                <PlayerState player={player} />
+              ))}
             </div>
           </div>
         </PlayDispatchContext.Provider>
