@@ -6,8 +6,7 @@ on:
       - main
 
 jobs:
-  setup:
-    name: Setup
+  lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -29,28 +28,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-  lint:
-    name: Lint
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-
       - name: Run lint
         run: npm run lint
 
-  build:
-    name: Build
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-
-      - name: Run build
+      - name: Build
         run: npm run build
