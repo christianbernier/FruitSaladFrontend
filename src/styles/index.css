@@ -33,9 +33,16 @@
     --purple: #911ABB;
 
     --font-default: 'Quicksand', sans-serif;
+    font-family: var(--font-default);
 }
 
 body {
     margin: 0;
     padding: 0;
+}
+
+input {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border-radius: 4px;
 }
