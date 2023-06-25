@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { FruitCard } from '../../model/card/fruit-card.model';
 import { FruitCardComponent } from '../card/fruit-card.component';
 import { EmptyCardComponent } from '../card/empty-card.component';
+import { FruitCard } from '../../model';
 
 export const FruitCardSetComponent: FC<{ cards: (FruitCard | null)[] }> = ({
   cards,

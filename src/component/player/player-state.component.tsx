@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Player } from '../../model/player/player.model';
 import { PlayerCardsComponent } from './player-cards.component';
+import { Player } from '../../model';
 
 export interface PlayerStateParams {
   player: Player;

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { PointCard } from '../../model/card/point-card.model';
 import { PointCardComponent } from './point-card.component';
+import { PointCard } from '../../model';
 
 export const PointCardCollectionComponent: FC<{ cards: PointCard[] }> = ({
   cards,

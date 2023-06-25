@@ -1,14 +1,11 @@
 import React, { FC, useEffect, useReducer } from 'react';
-import { GameProgress } from '../model/state/game-progress.model';
-import { PointCardType } from '../model/card/point-card-type.model';
-import { FruitType } from '../model/fruit.model';
 import { FruitMarketComponent } from '../component/market/fruit-market.component';
 import { PlayContext, PlayDispatchContext } from '../state/play/play.context';
 import { playReducer } from '../state/play/play.reducer';
 import { initialPlayState } from '../state/play/play.state';
 import { PlayActionType } from '../state/play/play.actions';
-import { Player } from '../model/player/player.model';
 import { PlayerState } from '../component/player/player-state.component';
+import { FruitType, GameProgress, Player, PointCardType } from '../model';
 
 export const PlayPage: FC = () => {
   const [playState, dispatch] = useReducer(playReducer, initialPlayState);

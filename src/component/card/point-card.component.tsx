@@ -1,10 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
 
 import '../../styles/card.css';
-import { PointCard } from '../../model/card/point-card.model';
-import { PointCardType } from '../../model/card/point-card-type.model';
 import { getFruitImage } from '../../util/fruit/fruit-image.util';
-import { FruitType } from '../../model/fruit.model';
+import { FruitType, PointCard, PointCardType } from '../../model';
 
 enum PointCardStyleType {
   TEXT_EQUALS,
@@ -59,8 +57,8 @@ export const PointCardComponent: FC<{ card: PointCard }> = ({ card }) => {
   return (
     <div className={'card-wrapper'}>
       <div className={`card point`}>
-        <div className={`point-card-reverse-top ${card.reverseType}`} />
-        <div className={`point-card-reverse-bottom ${card.reverseType}`} />
+        <div className={`point-card-reverse-top ${card.reverseFruit}`} />
+        <div className={`point-card-reverse-bottom ${card.reverseFruit}`} />
         {component === PointCardStyleType.LINEAR && (
           <LinearPointCardComponent card={card} />
         )}
