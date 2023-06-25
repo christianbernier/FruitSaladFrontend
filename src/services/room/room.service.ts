@@ -1,16 +1,16 @@
-import { GameState } from "../../model/state/state.model";
-import { WebSocketService } from "../websocket/websocket.service";
-
+import { GameState } from '../../model/state/state.model';
+import { WebSocketService } from '../websocket/websocket.service';
 
 export class RoomService {
   private webSocketService: WebSocketService = new WebSocketService();
 
-  joinRoom(roomUid: string,
-           playerName: string,
-           onJoinRoom: (state: GameState) => void,
-           onError: (error: Error) => void,
-           onUpdateState: (state: GameState) => void): void {
-
+  joinRoom(
+    roomUid: string,
+    playerName: string,
+    onJoinRoom: (state: GameState) => void,
+    onError: (error: Error) => void,
+    onUpdateState: (state: GameState) => void
+  ): void {
     this.webSocketService.initializeSocket(
       `/join?room=${roomUid}&name=${playerName}`,
       (event: MessageEvent): void => {
@@ -20,7 +20,7 @@ export class RoomService {
 
         console.log('received ', eventType, eventData);
 
-        switch(eventType) {
+        switch (eventType) {
           case 'ROOM_JOINED':
             onJoinRoom(eventPayload.initialState);
             break;
@@ -31,10 +31,12 @@ export class RoomService {
             onError(new Error('Room does not exist.'));
             break;
         }
-      }, (event: string): void => {
+      },
+      (event: string): void => {
         console.log(event);
         onError(new Error('Socket error.'));
-      });
+      }
+    );
   }
 
   startGame(): void {
