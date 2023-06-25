@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { FruitCard } from '../../model/card/fruit-card.model';
 import { FruitCardComponent } from './fruit-card.component';
+import { FruitCard } from '../../model';
 
 export const FruitCardCollectionComponent: FC<{ cards: FruitCard[] }> = ({
   cards,

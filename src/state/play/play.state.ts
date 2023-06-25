@@ -1,7 +1,4 @@
-import { FruitCard } from '../../model/card/fruit-card.model';
-import { PointCard } from '../../model/card/point-card.model';
-import { Player } from '../../model/player/player.model';
-import { GameProgress } from '../../model/state/game-progress.model';
+import { FruitCard, GameProgress, Player, PointCard } from '../../model';
 
 export type PlayState = {
   roomId: string | null;

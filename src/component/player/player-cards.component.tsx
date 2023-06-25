@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import { PointCard } from '../../model/card/point-card.model';
-import { FruitCard } from '../../model/card/fruit-card.model';
 import { PointCardCollectionComponent } from '../card/point-card-collection.component';
 import { FruitCardCollectionComponent } from '../card/fruit-card-collection.component';
+import { FruitCard, PointCard } from '../../model';
 
 export const PlayerCardsComponent: FC<{
   pointCards: PointCard[];
