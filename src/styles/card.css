@@ -8,7 +8,7 @@
 
 /* CARD */
 .card-wrapper {
-    width: 1px;
+    width: var(--card-width);
     height: var(--card-height);
     overflow-x: visible;
     color: var(--neutral-9);
@@ -34,7 +34,6 @@
 .card-name {
     font-size: 1.1rem;
     font-weight: 700;
-    flex: 0 0 auto;
     text-transform: uppercase;
 }
 
@@ -86,7 +85,7 @@
 
 /* CARD COLLECTION */
 .card-collection {
-    width: 600px;
+    max-width: 600px;
     display: flex;
     flex-direction: row;
 }
@@ -94,6 +93,7 @@
 .card-collection > .card-wrapper {
     flex: 1 1 auto;
     transition: all 100ms ease-in-out;
+    width: 60px;
 }
 
 .card-collection > .card-wrapper:hover,
