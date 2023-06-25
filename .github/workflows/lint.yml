@@ -1,7 +1,6 @@
 name: Lint
 
 on:
-  push:
   pull_request:
     branches:
       - main
@@ -9,6 +8,25 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
-      - lint: npm run lint
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Git Config
+        run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
