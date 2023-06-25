@@ -1,9 +1,9 @@
-import React, {FC, useEffect, useReducer} from 'react'
-import {GameProgress} from "../model/state/game-progress.model";
-import {PointCardType} from "../model/card/point-card-type.model";
-import {FruitType} from "../model/fruit.model";
-import {FruitMarketComponent} from "../component/market/fruit-market.component";
-import {PlayerCardsComponent} from "../component/player/player-cards.component";
+import React, { FC, useEffect, useReducer } from 'react';
+import { GameProgress } from '../model/state/game-progress.model';
+import { PointCardType } from '../model/card/point-card-type.model';
+import { FruitType } from '../model/fruit.model';
+import { FruitMarketComponent } from '../component/market/fruit-market.component';
+import { PlayerCardsComponent } from '../component/player/player-cards.component';
 import { PlayContext, PlayDispatchContext } from '../state/play/play.context';
 import { playReducer } from '../state/play/play.reducer';
 import { initialPlayState } from '../state/play/play.state';
@@ -16,7 +16,8 @@ export const PlayPage: FC = () => {
     // Load data from the backend upon receiving state
     dispatch({
       type: PlayActionType.UpdateGameState,
-      gameState: { // example data for now
+      gameState: {
+        // example data for now
         roomId: 'test_room',
         players: [
           {
@@ -39,7 +40,14 @@ export const PlayPage: FC = () => {
           },
           {
             pointType: PointCardType.FRUIT_SALAD,
-            fruitTypes: [FruitType.STRAWBERRY, FruitType.MANGO, FruitType.BANANA, FruitType.PEAR, FruitType.BLUEBERRY, FruitType.GRAPE],
+            fruitTypes: [
+              FruitType.STRAWBERRY,
+              FruitType.MANGO,
+              FruitType.BANANA,
+              FruitType.PEAR,
+              FruitType.BLUEBERRY,
+              FruitType.GRAPE,
+            ],
             pointValues: [12],
             reverseType: FruitType.STRAWBERRY,
           },
@@ -51,48 +59,55 @@ export const PlayPage: FC = () => {
           },
         ],
         fruitCards: [
-          {type: FruitType.STRAWBERRY},
-          {type: FruitType.MANGO},
-          {type: FruitType.BANANA},
-          {type: FruitType.PEAR},
-          {type: FruitType.BLUEBERRY},
-          {type: FruitType.GRAPE},
+          { type: FruitType.STRAWBERRY },
+          { type: FruitType.MANGO },
+          { type: FruitType.BANANA },
+          { type: FruitType.PEAR },
+          { type: FruitType.BLUEBERRY },
+          { type: FruitType.GRAPE },
         ],
-      }
-    })
+      },
+    });
   }, []);
 
-  return <>
-    <PlayContext.Provider value={playState}>
-      <PlayDispatchContext.Provider value={dispatch}>
-        <div className={'play-page'}>
-        <div className={'play-page-left'}>
-          <span className={'play-page-fruit-market-title'}>Fruit Market</span>
-          <FruitMarketComponent/>
-        </div>
-        <div className={'play-page-right'}>
-          <PlayerCardsComponent pointCards={[
-              {
-                pointType: PointCardType.AT_LEAST_2,
-                fruitTypes: [],
-                pointValues: [3],
-                reverseType: FruitType.STRAWBERRY,
-              },
-              {
-                pointType: PointCardType.FEWEST_OF_TYPE,
-                fruitTypes: [FruitType.BANANA],
-                pointValues: [7],
-                reverseType: FruitType.GRAPE,
-              },
-            ]} fruitCards={[
-              {type: FruitType.BANANA},
-              {type: FruitType.PEAR},
-              {type: FruitType.PEAR},
-              {type: FruitType.BLUEBERRY},
-            ]}/>
+  return (
+    <>
+      <PlayContext.Provider value={playState}>
+        <PlayDispatchContext.Provider value={dispatch}>
+          <div className={'play-page'}>
+            <div className={'play-page-left'}>
+              <span className={'play-page-fruit-market-title'}>
+                Fruit Market
+              </span>
+              <FruitMarketComponent />
+            </div>
+            <div className={'play-page-right'}>
+              <PlayerCardsComponent
+                pointCards={[
+                  {
+                    pointType: PointCardType.AT_LEAST_2,
+                    fruitTypes: [],
+                    pointValues: [3],
+                    reverseType: FruitType.STRAWBERRY,
+                  },
+                  {
+                    pointType: PointCardType.FEWEST_OF_TYPE,
+                    fruitTypes: [FruitType.BANANA],
+                    pointValues: [7],
+                    reverseType: FruitType.GRAPE,
+                  },
+                ]}
+                fruitCards={[
+                  { type: FruitType.BANANA },
+                  { type: FruitType.PEAR },
+                  { type: FruitType.PEAR },
+                  { type: FruitType.BLUEBERRY },
+                ]}
+              />
+            </div>
           </div>
-        </div>
-      </PlayDispatchContext.Provider>
-    </PlayContext.Provider>
-  </>
-}
+        </PlayDispatchContext.Provider>
+      </PlayContext.Provider>
+    </>
+  );
+};
