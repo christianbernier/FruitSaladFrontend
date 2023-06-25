@@ -3,6 +3,7 @@ import { Player } from './player.model';
 
 export enum GameProgress {
   JOINING = 'JOINING',
+  WAITING_TO_START = 'WAITING_TO_START',
   IN_PROGRESS = 'IN_PROGRESS',
   GAME_OVER = 'GAME_OVER',
 }

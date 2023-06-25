@@ -2,6 +2,18 @@
     background-color: var(--neutral-9);
 }
 
+.play-page--pre-join,
+.play-page--waiting-to-start {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* IN PROGRESS GAME */
 .play-page {
     width: 100dvw;
     height: 100dvh;
