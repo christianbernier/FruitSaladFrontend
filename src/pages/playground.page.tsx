@@ -101,7 +101,7 @@ export const PlaygroundPage = () => {
       }
     ]}/>
     <br/>
-    <FruitMarketComponent pointCards={[
+    {/* <FruitMarketComponent pointCards={[
       {
         pointType: PointCardType.DIFF_SET,
         fruitTypes: [FruitType.BANANA, FruitType.MANGO, FruitType.PEAR],
@@ -127,6 +127,6 @@ export const PlaygroundPage = () => {
     {type: FruitType.PEAR},
     {type: FruitType.BLUEBERRY},
     {type: FruitType.GRAPE},
-      ]}/>
+      ]}/> */}
   </>
 }
