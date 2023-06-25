@@ -1,6 +1,6 @@
-import {FruitType} from "../fruit.model";
+import { FruitType } from '../fruit.model';
 
 export interface FruitCard {
-  id?: string,
-  type: FruitType
+  id?: string;
+  type: FruitType;
 }
