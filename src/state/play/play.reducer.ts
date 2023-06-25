@@ -1,7 +1,10 @@
-import { PlayAction, PlayActionType } from "./play.actions";
-import { PlayState } from "./play.state";
+import { PlayAction, PlayActionType } from './play.actions';
+import { PlayState } from './play.state';
 
-export function playReducer(prevState: PlayState, action: PlayAction): PlayState {
+export function playReducer(
+  prevState: PlayState,
+  action: PlayAction
+): PlayState {
   switch (action.type) {
     case PlayActionType.UpdateGameState: {
       const updatedState = action.gameState;
@@ -12,8 +15,8 @@ export function playReducer(prevState: PlayState, action: PlayAction): PlayState
         fruitMarket: {
           pointCards: updatedState.pointCards || [],
           fruitCards: updatedState.fruitCards || [],
-        }
-      }
+        },
+      };
     }
     case PlayActionType.ClickCard: {
       return {
