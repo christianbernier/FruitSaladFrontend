@@ -1,10 +1,12 @@
-import React, {FC} from 'react'
-import {FruitCard} from "../../model/card/fruit-card.model";
-import {PointCard} from "../../model/card/point-card.model";
+import React, {FC, useContext} from 'react'
 import {PointCardSetComponent} from "./point-card-set.component";
 import {FruitCardSetComponent} from "./fruit-card-set.component";
+import { PlayContext } from '../../state/play/play.context';
 
-export const FruitMarketComponent: FC<{pointCards: (PointCard | null)[], fruitCards: (FruitCard | null)[]}> = ({pointCards, fruitCards}) => {
+export const FruitMarketComponent: FC = () => {
+  const playState = useContext(PlayContext);
+  const { pointCards, fruitCards } = playState.fruitMarket;
+
   return <>
     <div className={'fruit-market'}>
       <PointCardSetComponent cards={pointCards}/>
