@@ -1,4 +1,4 @@
-name: Lint
+name: New Pull Request
 
 on:
   pull_request:
@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  lint:
+  setup:
+    name: Setup
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -28,5 +29,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+  lint:
+    name: Lint
+    needs: setup
+    steps:
       - name: Run lint
         run: npm run lint
+
+  build:
+    name: Build
+    needs: setup
+    steps:
+      - name: Run build
+        run: npm run build
