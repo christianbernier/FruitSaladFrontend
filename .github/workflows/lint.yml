@@ -9,6 +9,6 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     steps:
-      - lint: npm run lint
+      - name: 'Run lint'
+        run: npm run lint
