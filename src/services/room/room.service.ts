@@ -1,4 +1,4 @@
-import { GameState } from '../../model/state/state.model';
+import { GameState } from '../../model';
 import { WebSocketService } from '../websocket/websocket.service';
 
 export class RoomService {

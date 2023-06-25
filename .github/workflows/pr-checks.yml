@@ -1,4 +1,4 @@
-name: Lint
+name: New Pull Request
 
 on:
   pull_request:
@@ -30,3 +30,6 @@ jobs:
 
       - name: Run lint
         run: npm run lint
+
+      - name: Build
+        run: npm run build

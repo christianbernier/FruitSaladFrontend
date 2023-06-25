@@ -5,7 +5,14 @@ import { playReducer } from '../state/play/play.reducer';
 import { initialPlayState } from '../state/play/play.state';
 import { PlayActionType } from '../state/play/play.actions';
 import { PlayerState } from '../component/player/player-state.component';
-import { FruitType, GameProgress, Player, PointCardType } from '../model';
+import {
+  FruitCard,
+  FruitType,
+  GameProgress,
+  Player,
+  PointCard,
+  PointCardType,
+} from '../model';
 
 export const PlayPage: FC = () => {
   const [playState, dispatch] = useReducer(playReducer, initialPlayState);
@@ -16,35 +23,38 @@ export const PlayPage: FC = () => {
       type: PlayActionType.UpdateGameState,
       gameState: {
         // example data for now
-        roomId: 'test_room',
+        roomUid: 'test_room',
         players: [
           {
+            uid: 'player-christian',
             name: 'Christian',
             pointCards: [
               {
                 pointType: PointCardType.AT_LEAST_2,
                 fruitTypes: [],
                 pointValues: [3],
-                reverseType: FruitType.STRAWBERRY,
+                reverseFruit: FruitType.STRAWBERRY,
               },
               {
                 pointType: PointCardType.FEWEST_OF_TYPE,
                 fruitTypes: [FruitType.BANANA],
                 pointValues: [7],
-                reverseType: FruitType.GRAPE,
+                reverseFruit: FruitType.GRAPE,
               },
             ],
             fruitCards: [
-              { type: FruitType.BANANA },
-              { type: FruitType.PEAR },
-              { type: FruitType.PEAR },
-              { type: FruitType.BLUEBERRY },
+              { fruit: FruitType.BANANA },
+              { fruit: FruitType.PEAR },
+              { fruit: FruitType.PEAR },
+              { fruit: FruitType.BLUEBERRY },
             ],
-          },
+          } as Player,
           {
+            uid: 'player-jeremy',
             name: 'Jeremy',
           },
           {
+            uid: 'player-ben',
             name: 'Ben',
           },
         ],
@@ -54,7 +64,7 @@ export const PlayPage: FC = () => {
             pointType: PointCardType.DIFF_SET,
             fruitTypes: [FruitType.BANANA, FruitType.MANGO, FruitType.PEAR],
             pointValues: [8],
-            reverseType: FruitType.BANANA,
+            reverseFruit: FruitType.BANANA,
           },
           {
             pointType: PointCardType.FRUIT_SALAD,
@@ -67,23 +77,23 @@ export const PlayPage: FC = () => {
               FruitType.GRAPE,
             ],
             pointValues: [12],
-            reverseType: FruitType.STRAWBERRY,
+            reverseFruit: FruitType.STRAWBERRY,
           },
           {
             pointType: PointCardType.AT_LEAST_3,
             fruitTypes: [],
             pointValues: [5],
-            reverseType: FruitType.BLUEBERRY,
+            reverseFruit: FruitType.BLUEBERRY,
           },
-        ],
+        ] as PointCard[],
         fruitCards: [
-          { type: FruitType.STRAWBERRY },
-          { type: FruitType.MANGO },
-          { type: FruitType.BANANA },
-          { type: FruitType.PEAR },
-          { type: FruitType.BLUEBERRY },
-          { type: FruitType.GRAPE },
-        ],
+          { fruit: FruitType.STRAWBERRY },
+          { fruit: FruitType.MANGO },
+          { fruit: FruitType.BANANA },
+          { fruit: FruitType.PEAR },
+          { fruit: FruitType.BLUEBERRY },
+          { fruit: FruitType.GRAPE },
+        ] as FruitCard[],
       },
     });
   }, []);
