@@ -6,6 +6,12 @@ export function playReducer(
   action: PlayAction
 ): PlayState {
   switch (action.type) {
+    case PlayActionType.SetRoomUid: {
+      return {
+        ...prevState,
+        roomUid: action.roomUid,
+      };
+    }
     case PlayActionType.UpdateGameState: {
       const updatedState = action.gameState;
       return {
@@ -16,6 +22,12 @@ export function playReducer(
           pointCards: updatedState.pointCards || [],
           fruitCards: updatedState.fruitCards || [],
         },
+      };
+    }
+    case PlayActionType.UpdateServerError: {
+      return {
+        ...prevState,
+        serverError: action.serverError,
       };
     }
     case PlayActionType.ClickCard: {

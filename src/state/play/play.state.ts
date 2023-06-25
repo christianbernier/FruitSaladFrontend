@@ -1,7 +1,7 @@
 import { FruitCard, GameProgress, Player, PointCard } from '../../model';
 
 export type PlayState = {
-  roomId: string | null;
+  roomUid: string | null;
   players: Player[];
   gameProgress: GameProgress;
   fruitMarket: {
@@ -9,10 +9,11 @@ export type PlayState = {
     fruitCards: (FruitCard | null)[];
   };
   cardsClicked: (PointCard | FruitCard)[];
+  serverError: string | null;
 };
 
 export const initialPlayState: PlayState = {
-  roomId: null,
+  roomUid: null,
   players: [],
   gameProgress: GameProgress.JOINING,
   fruitMarket: {
@@ -20,4 +21,5 @@ export const initialPlayState: PlayState = {
     fruitCards: [],
   },
   cardsClicked: [],
+  serverError: null,
 };
